@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wsb-sentiment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wsb-sentiment
+  template:
+    metadata:
+      labels:
+        app: wsb-sentiment
+    spec:
+      containers:
+        - name: wsb-sentiment
+          image: restfulleo/wallstreetbets-sentiment-analysis:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: CLIENT_ID
+              value: 
+            - name: CLIENT_SECRET
+              value: 
+            - name: USERNAME
+              value: 
+            - name: PASSWORD
+              value: 
+      imagePullSecrets:
+        - name: regcred

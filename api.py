@@ -17,6 +17,11 @@ def hello():
     wsb_object = json.dumps(wsb.__dict__)
     return wsb_object
 
+@app.route("/test")
+def test():
+    print("test successfull")
+    return "test successfull"
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
