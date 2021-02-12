@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: wsb-sentiment
   name: wsb-sentiment
 spec:
   replicas: 1
@@ -26,5 +27,12 @@ spec:
               value: 
             - name: PASSWORD
               value: 
+          resources:
+            limits:
+              memory: 500Mi
+              cpu: 50m
+            requests:
+              memory: 500Mi
+              cpu: 50m
       imagePullSecrets:
         - name: regcred
